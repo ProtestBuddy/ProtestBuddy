@@ -1,5 +1,5 @@
 runtime: custom
-service: hack20
+service: link-up
 env: flex
 threadsafe: true
 zones:
