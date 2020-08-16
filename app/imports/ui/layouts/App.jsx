@@ -18,6 +18,8 @@ import ListStuffAdmin from "../pages/ListStuffAdmin";
 import AddStuff from "../pages/AddStuff";
 import AddProfile from "../pages/AddProfile";
 import EditStuff from "../pages/EditStuff";
+import EditProfile from "../pages/EditProfile";
+import EditGroup from "../pages/EditGroup";
 import NotFound from "../pages/NotFound";
 import Signin from "../pages/Signin";
 import Signup from "../pages/Signup";
@@ -42,7 +44,8 @@ class App extends React.Component {
             <ProtectedRoute path="/AddProfile" component={AddProfile} />
             <ProtectedRoute path="/CreateGroup" component={CreateGroup} />
             <ProtectedRoute path="/ListGroup" component={ListGroup} />
-            <ProtectedRoute path="/edit/:_id" component={EditStuff} />
+            <ProtectedRoute path="/edit/:_id" component={EditProfile} />
+            <ProtectedRoute path="/edit-group/:_id" component={EditGroup} />
             <AdminProtectedRoute path="/admin" component={ListStuffAdmin} />
             <ProtectedRoute path="/signout" component={Signout} />
             <Route component={NotFound} />
