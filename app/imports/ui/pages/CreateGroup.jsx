@@ -1,6 +1,6 @@
 import React from 'react';
 import { Grid, Segment, Header } from 'semantic-ui-react';
-import { AutoForm, ErrorsField, NumField, SelectField, SubmitField, TextField } from 'uniforms-semantic';
+import { AutoForm, ErrorsField, NumField, SelectField, SubmitField, TextField, DateField, BooleanField } from 'uniforms-semantic';
 import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
@@ -10,13 +10,14 @@ import { Groups } from '../../api/stuff/Group';
 
 /** Create a schema to specify the structure of the data to appear in the form. */
 const formSchema = new SimpleSchema({
-  name: String,
-  quantity: Number,
-  condition: {
-    type: String,
-    allowedValues: ['excellent', 'good', 'fair', 'poor'],
-    defaultValue: 'good',
+  location: String,
+  date: {
+      type: Date,
+      defaultValue: new Date()
   },
+  adult: {
+       type: Boolean
+  }
 });
 
 const bridge = new SimpleSchema2Bridge(formSchema);
@@ -26,9 +27,9 @@ class CreateGroup extends React.Component {
 
   /** On submit, insert the data. */
   submit(data, formRef) {
-    const { name, quantity, condition } = data;
+    const { location, date, adult } = data;
     const owner = Meteor.user().username;
-    Groups.collection.insert({ name, quantity, condition, owner },
+    Groups.collection.insert({ location, date, adult, owner },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');
@@ -48,9 +49,9 @@ class CreateGroup extends React.Component {
             <Header as="h2" textAlign="center">Add Stuff</Header>
             <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => this.submit(data, fRef)} >
               <Segment>
-                <TextField name='name'/>
-                <NumField name='quantity' decimal={false}/>
-                <SelectField name='condition'/>
+                <TextField name='location'/>
+                <DateField name='date'/>
+                <BooleanField name='adult'/>
                 <SubmitField value='Submit'/>
                 <ErrorsField/>
               </Segment>
