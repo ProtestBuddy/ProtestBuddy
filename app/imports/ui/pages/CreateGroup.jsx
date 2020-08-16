@@ -12,7 +12,6 @@ import { Groups } from '../../api/stuff/Group';
 const formSchema = new SimpleSchema({
   location: String,
   date: String,
-  adult: String,
 });
 
 const bridge = new SimpleSchema2Bridge(formSchema);
@@ -22,9 +21,9 @@ class CreateGroup extends React.Component {
 
   /** On submit, insert the data. */
   submit(data, formRef) {
-    const { location, date, adult } = data;
+    const { location, date, age } = data;
     const owner = Meteor.user().username;
-    Groups.collection.insert({ location, date, adult, owner },
+    Groups.collection.insert({ location, date, owner },
         (error) => {
           if (error) {
             swal('Error', error.message, 'error');
@@ -41,12 +40,11 @@ class CreateGroup extends React.Component {
     return (
         <Grid container centered>
           <Grid.Column>
-            <Header as="h2" textAlign="center">Add Stuff</Header>
+            <Header as="h2" textAlign="center">Create a Group!</Header>
             <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => this.submit(data, fRef)} >
               <Segment>
                 <TextField name='location'/>
                 <TextField name='date' placeholder={'mm/dd/yyyy'}/>
-                <TextField name='adult'/>
                 <SubmitField value='Submit'/>
                 <ErrorsField/>
               </Segment>
