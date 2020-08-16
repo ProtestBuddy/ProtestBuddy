@@ -75,6 +75,15 @@ class EditGroup extends React.Component {
                 <Item.Description></Item.Description>
 
                 <Item.Header as="a">Time: {this.props.items.time}</Item.Header>
+                <Item.Description></Item.Description>
+                <Item.Description></Item.Description>
+                <Item.Description></Item.Description>
+                <Item.Description></Item.Description>
+                <Item.Header as="a">
+                  This is where you would see who created this wonderful group
+                  and a map showing where to meet, but alas, the hackathon was
+                  only 24 hours.
+                </Item.Header>
               </Item.Content>
             </Item>
           </Item.Group>
@@ -101,6 +110,7 @@ class EditGroup extends React.Component {
 EditGroup.propTypes = {
   doc: PropTypes.object,
   items: PropTypes.object,
+  PersonItems: PropTypes.object,
   model: PropTypes.object,
   ready: PropTypes.bool.isRequired,
 };
@@ -112,9 +122,12 @@ export default withTracker(({ match }) => {
   const iDItems = Meteor.subscribe(Groups.userPublicationName);
   // Get access to Stuff documents.
   const subscription = Meteor.subscribe(Groups.userPublicationName);
+  //const username = Meteor.users.findOne(documentId).username;
+  // return Stuffs.collection.find({ owner: username });
   return {
-    //items: Groups.collection.find({ _id: documentId }).fetch(),
+    // items: Groups.collection.find({ _id: documentId }).fetch(),
     items: Groups.collection.findOne(documentId),
+    // PersonItems: Profile.collection.find({ owner: username }),
     doc: Groups.collection.findOne(documentId),
     ready: subscription.ready(),
   };

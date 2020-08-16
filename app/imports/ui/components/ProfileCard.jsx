@@ -9,7 +9,7 @@ class ProfileCard extends React.Component {
   render() {
     return (
       <Card>
-        <Image src="/images/blankUser.png" size="medium" wrapped ui={false} />
+        <Image src="/images/facecartoon.jpg" size="medium" wrapped ui={false} />
         <Card.Content>
           <Card.Header>{this.props.stuff.name}</Card.Header>
           <Card.Meta>{this.props.stuff.pronouns}</Card.Meta>

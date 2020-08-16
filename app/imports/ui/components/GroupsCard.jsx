@@ -25,7 +25,7 @@ class GroupData extends React.Component {
               basic
               color="blue"
             >
-              LinkUP!
+              LinkUP! - with them!
             </Button>
           </div>
         </Card.Content>
@@ -37,6 +37,7 @@ class GroupData extends React.Component {
 /** Require a document to be passed to this component. */
 GroupData.propTypes = {
   stuff: PropTypes.object.isRequired,
+  // userData: PropTypes.object,
 };
 
 /** Wrap this component in withRouter since we use the <Link> React Router element. */
