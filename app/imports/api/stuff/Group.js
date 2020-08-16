@@ -17,6 +17,7 @@ class GroupCollection {
         date: String,
         event: String,
         description: String,
+        time: String,
       },
       { tracker: Tracker }
     );

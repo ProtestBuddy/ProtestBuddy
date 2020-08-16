@@ -23,6 +23,7 @@ const formSchema = new SimpleSchema({
   date: String,
   event: String,
   description: String,
+  time: String,
 });
 
 const bridge = new SimpleSchema2Bridge(formSchema);
@@ -31,10 +32,10 @@ const bridge = new SimpleSchema2Bridge(formSchema);
 class CreateGroup extends React.Component {
   /** On submit, insert the data. */
   submit(data, formRef) {
-    const { location, date, event, description } = data;
+    const { location, date, event, description, time } = data;
     const owner = Meteor.user().username;
     Groups.collection.insert(
-      { location, date, event, description, owner },
+      { location, date, event, description, time, owner },
       (error) => {
         if (error) {
           swal("Error", error.message, "error");
@@ -67,6 +68,7 @@ class CreateGroup extends React.Component {
               <TextField name="location" />
               <TextField name="date" placeholder={"mm/dd/yyyy"} />
               <TextField name="description" />
+              <TextField name="time" />
               <SubmitField value="Submit" />
               <ErrorsField />
             </Segment>
