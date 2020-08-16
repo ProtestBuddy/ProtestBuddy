@@ -32,9 +32,7 @@ class ListProfile extends React.Component {
   renderPage() {
     return (
       <Container>
-        <Header as="h2" textAlign="center">
-          Your Profile:
-        </Header>
+        <Header as="h2" textAlign="center"></Header>
 
         <Container>
           <Card.Group>

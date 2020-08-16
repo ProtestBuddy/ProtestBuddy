@@ -10,11 +10,7 @@ class GroupData extends React.Component {
     return (
       <Card>
         <Card.Content>
-          <Image
-            floated="right"
-            size="mini"
-            src="\app\public\images\blankUser.png"
-          />
+          <Image floated="right" size="tiny" src="\images\earth.png" />
           <Card.Header>{this.props.stuff.location}</Card.Header>
           <Card.Meta>{this.props.stuff.date}</Card.Meta>
           <Card.Description>
@@ -24,11 +20,8 @@ class GroupData extends React.Component {
         </Card.Content>
         <Card.Content extra>
           <div className="ui two buttons">
-            <Button basic color="green">
-              Approve
-            </Button>
-            <Button basic color="red">
-              Decline
+            <Button basic color="blue">
+              LinkUP!
             </Button>
           </div>
         </Card.Content>
