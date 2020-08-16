@@ -8,8 +8,8 @@ import { YourGroup } from "../../api/stuff/JGroup";
 class ProfileCard extends React.Component {
   render() {
     return (
-      <Card fluid style={{ width: 500, height: 600 }}>
-        <Image src="/images/blankUser.png" wrapped ui={false} />
+      <Card>
+        <Image src="/images/blankUser.png" size="medium" wrapped ui={false} />
         <Card.Content>
           <Card.Header>{this.props.stuff.name}</Card.Header>
           <Card.Meta>{this.props.stuff.pronouns}</Card.Meta>
