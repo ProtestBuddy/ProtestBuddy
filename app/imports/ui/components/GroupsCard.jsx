@@ -1,7 +1,7 @@
 import React from "react";
 import { Table, Card, Image, Button } from "semantic-ui-react";
 import PropTypes from "prop-types";
-import { withRouter, Link } from "react-router-dom";
+import { withRouter, Link, NavLink } from "react-router-dom";
 import { YourGroup } from "../../api/stuff/JGroup";
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
@@ -20,7 +20,13 @@ class GroupData extends React.Component {
         </Card.Content>
         <Card.Content extra>
           <div className="ui two buttons">
-            <Button basic color="blue">
+            <Button
+              as={NavLink}
+              exact
+              to={`/edit-group/${this.props.stuff._id}`}
+              basic
+              color="blue"
+            >
               LinkUP!
             </Button>
           </div>
