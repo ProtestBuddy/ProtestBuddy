@@ -12,8 +12,8 @@ class Landing extends React.Component {
           </Grid.Column>
 
           <Grid.Column width={4}>
-            <h1>Welcome to this template</h1>
-            <p>Now get to work and modify this app!</p>
+          <h1>Welcome.</h1>
+          <p>LinkUP! is a space that can connects people who want to join a group to safely protest, advocate for the community and use your voice in support of social movements. </p>
           </Grid.Column>
 
         </Grid>

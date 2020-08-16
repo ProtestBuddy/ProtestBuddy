@@ -14,7 +14,7 @@ class NavBar extends React.Component {
       <Menu style={menuStyle} attached="top" borderless inverted>
         <Menu.Item as={NavLink} activeClassName="" exact to="/">
           <Header inverted as="h1">
-            meteor-application-template
+            LinkUP!
           </Header>
         </Menu.Item>
         {this.props.currentUser
