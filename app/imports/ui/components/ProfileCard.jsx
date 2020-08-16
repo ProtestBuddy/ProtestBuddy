@@ -10,8 +10,6 @@ class ProfileCard extends React.Component {
     return (
       <Card fluid style={{ width: 500 }}>
         <Image src="/images/blankUser.png" wrapped ui={false} />
-      <Card>
-        <Image src="/images/blankUser.png" size="medium" wrapped ui={false} />
         <Card.Content>
           <Card.Header>{this.props.stuff.name}</Card.Header>
           <Card.Meta>{this.props.stuff.pronouns}</Card.Meta>
@@ -27,6 +25,12 @@ class ProfileCard extends React.Component {
             Instagram: {this.props.stuff.instagram} </Card.Description>
             <Card.Description>
             Email: {this.props.stuff.email} </Card.Description>
+        </Card.Content>
+        <Card.Content extra>
+          <a>
+            <Icon name="user" />
+            10 Friends
+          </a>
         </Card.Content>
       </Card>
     );
