@@ -46,17 +46,17 @@ export default class Signin extends React.Component {
         <Grid textAlign="center" verticalAlign="middle" centered columns={2}>
           <Grid.Column>
             <Header as="h2" textAlign="center">
-              Login to your account
+              Log in to LinkUP!
             </Header>
             <Form onSubmit={this.submit}>
               <Segment stacked>
                 <Form.Input
-                  label="Email"
-                  icon="user"
+                  label="Email or Username"
+                  icon="user circle outline"
                   iconPosition="left"
                   name="email"
                   type="email"
-                  placeholder="E-mail address"
+                  placeholder="E-mail or Username"
                   onChange={this.handleChange}
                 />
                 <Form.Input
@@ -68,11 +68,11 @@ export default class Signin extends React.Component {
                   type="password"
                   onChange={this.handleChange}
                 />
-                <Form.Button content="Submit"/>
+                <Form.Button content="Log In"/>
               </Segment>
             </Form>
             <Message>
-              <Link to="/signup">Click here to Register</Link>
+              <Link to="/signup">Need an account? Create one here</Link>
             </Message>
             {this.state.error === '' ? (
               ''
