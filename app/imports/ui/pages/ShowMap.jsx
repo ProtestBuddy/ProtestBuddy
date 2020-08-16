@@ -12,40 +12,38 @@ import GroupData from '../components/GroupData';
 
 var markers_arr = [];
 let map;
+function initMap() {
+  var UW = {lat: 47.654259, lng: -122.307880};
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 5,
+    center: UW
+  });
 
+  google.maps.event.addListener(map, 'click', function(event) {
+    addMarker(event.latLng, map);
+  });
+}
+
+function addMarker(location, map) {
+  if (this.userId) {
+    for (i = 0; i < markers_arr.length; i++) {
+      // if the label of the i-th marker equals the name of any user in the group of the current user
+      if (markers_arr[i].getLabel() == Meteor.users.findOne(this.userId).name) {
+        markers_arr[i].setMap(null);
+      }
+    }
+    var marker = new google.maps.Marker({
+      position: location,
+      label: Meteor.users.findOne(this.userId).name,
+      map: map,
+      draggable: true
+    });
+    markers_arr.push(marker);
+  }
+}
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class ShowMap extends React.Component {
-
-  function initMap() {
-    var UW = {lat: 47.654259, lng: -122.307880};
-    var map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 5,
-      center: UW
-    });
-  
-    google.maps.event.addListener(map, 'click', function(event) {
-      addMarker(event.latLng, map);
-    });
-  }
-  
-  function addMarker(location, map) {
-    if (this.userId) {
-      for (i = 0; i < markers_arr.length; i++) {
-        if (markers_arr[i].getLabel() == Meteor.users.findOne(this.userId).name) {
-          markers_arr[i].setMap(null);
-        }
-      }
-      var marker = new google.maps.Marker({
-        position: location,
-        label: Meteor.users.findOne(this.userId).name,
-        map: map,
-        draggable: true
-      });
-      markers_arr.push(marker);
-    }
-  }
-
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   render() {
     return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
