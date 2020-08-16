@@ -11,7 +11,7 @@ class GroupData extends React.Component {
           <Table.Cell>{this.props.stuff.location}</Table.Cell>
           <Table.Cell>{this.props.stuff.date}</Table.Cell>
           <Table.Cell>
-            <Link to={`/edit/${this.props.stuff._id}`}>Edit</Link>
+            <Link to={`/edit-group/${this.props.stuff._id}`}>Edit</Link>
           </Table.Cell>
         </Table.Row>
     );

@@ -21,7 +21,7 @@ class CreateGroup extends React.Component {
 
   /** On submit, insert the data. */
   submit(data, formRef) {
-    const { location, date, age } = data;
+    const { location, date } = data;
     const owner = Meteor.user().username;
     Groups.collection.insert({ location, date, owner },
         (error) => {
