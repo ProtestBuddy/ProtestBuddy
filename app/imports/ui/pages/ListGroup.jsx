@@ -8,6 +8,7 @@ import { Groups } from "../../api/stuff/Group";
 import StuffItem from "../components/StuffItem";
 import GroupData from "../components/GroupData";
 import GroupsCard from "../components/GroupsCard";
+import { Profile } from "../../api/stuff/Profile";
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class ListGroup extends React.Component {
@@ -48,15 +49,19 @@ class ListGroup extends React.Component {
 /** Require an array of Stuff documents in the props. */
 ListGroup.propTypes = {
   stuffs: PropTypes.array.isRequired,
+  // userData: PropTypes.array,
   ready: PropTypes.bool.isRequired,
 };
 
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
 export default withTracker(() => {
   // Get access to Stuff documents.
+  //const documentId = match.params._id;
   const subscription = Meteor.subscribe(Groups.userPublicationName);
+
   return {
     stuffs: Groups.collection.find({}).fetch(),
+    // userData: Profile.collection.find({}).fetch(),
     ready: subscription.ready(),
   };
 })(ListGroup);
