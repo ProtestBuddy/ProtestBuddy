@@ -19,7 +19,10 @@ Meteor.publish(Profile.userPublicationName, function () {
   if (this.userId) {
     const username = Meteor.users.findOne(this.userId).username;
     return Profile.collection.find({ owner: username });
-    
+  }
+  return this.ready();
+});
+
 Meteor.publish(Groups.userPublicationName, function () {
   if (this.userId) {
     const username = Meteor.users.findOne(this.userId).username;
