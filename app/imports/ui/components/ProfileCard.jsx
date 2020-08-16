@@ -13,13 +13,16 @@ class ProfileCard extends React.Component {
         <Card.Content>
           <Card.Header>{this.props.stuff.name}</Card.Header>
           <Card.Meta>{this.props.stuff.pronouns}</Card.Meta>
+          <Card.Meta>{this.props.stuff.gender}</Card.Meta>
+          <Card.Meta>{this.props.stuff.age}</Card.Meta>
           <Card.Description>
-            Pronouns : {this.props.stuff.pronouns}
-            {this.props.stuff.gender}
-            {this.props.stuff.age}
+            <br></br>
             {this.props.stuff.location}
+            <br></br>
             {this.props.stuff.bio}
+            <br></br>
             {this.props.stuff.instagram}
+            <br></br>
             {this.props.stuff.email}
           </Card.Description>
         </Card.Content>

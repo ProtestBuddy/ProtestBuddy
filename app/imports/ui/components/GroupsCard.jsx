@@ -11,12 +11,10 @@ class GroupData extends React.Component {
       <Card>
         <Card.Content>
           <Image floated="right" size="tiny" src="\images\earth.png" />
-          <Card.Header>{this.props.stuff.location}</Card.Header>
+          <Card.Header>{this.props.stuff.event}</Card.Header>
           <Card.Meta>{this.props.stuff.date}</Card.Meta>
-          <Card.Description>
-            <Link to={`/edit-group/${this.props.stuff._id}`}>Edit</Link>
-            {this.props.stuff.owner}
-          </Card.Description>
+          <Card.Meta> {this.props.stuff.time}</Card.Meta>
+          <Card.Description>{this.props.stuff.description}</Card.Description>
         </Card.Content>
         <Card.Content extra>
           <div className="ui two buttons">

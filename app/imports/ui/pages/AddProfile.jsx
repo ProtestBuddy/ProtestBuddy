@@ -74,14 +74,35 @@ class AddProfile extends React.Component {
             onSubmit={(data) => this.submit(data, fRef)}
           >
             <Segment>
-              <TextField name="name" />
-              <TextField name="pronouns" />
-              <TextField name="gender" />
-              <NumField name="age" decimal={false} />
-              <TextField name="location" />
-              <TextField name="bio" />
-              <TextField name="instagram" />
-              <TextField name="email" />
+              <TextField name="name" label={false} placeholder={"Name"} />
+              <TextField
+                name="pronouns"
+                label={false}
+                placeholder={"Pronouns"}
+              />
+              <TextField name="gender" label={false} placeholder={"Gender"} />
+              <NumField
+                name="age"
+                decimal={false}
+                label={false}
+                placeholder={"Age (Optional)"}
+              />
+              <TextField
+                name="location"
+                label={false}
+                placeholder={"Where are you from? (Optional)"}
+              />
+              <TextField
+                name="bio"
+                label={false}
+                placeholder={"Tell others a little about your self!"}
+              />
+              <TextField
+                name="instagram"
+                label={false}
+                placeholder={"Got an Insta? Drop your @ here!"}
+              />
+              <TextField name="email" label={false} placeholder={"Email"} />
               <SubmitField value="Submit" />
               <ErrorsField />
             </Segment>
