@@ -13,7 +13,7 @@ class Landing extends React.Component {
 
           <Grid.Column width={4}>
             <h1>Welcome.</h1>
-            <p>LinkUP! is a space that can connects people who want to join a group to safely protest, advocate for the community and use your voice in support of social movements. </p>
+            <p>LinkUP! is a space that can connects people who want to join a group to safely protest, advocate for the community and use your voice in support of social movements. Click Login to begin. </p>
           </Grid.Column>
 
         </Grid>

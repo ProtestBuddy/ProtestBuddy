@@ -8,20 +8,23 @@ import { YourGroup } from "../../api/stuff/JGroup";
 class ProfileCard extends React.Component {
   render() {
     return (
-      <Card fluid style={{ width: 500, height: 600 }}>
+      <Card fluid style={{ width: 500 }}>
         <Image src="/images/blankUser.png" wrapped ui={false} />
         <Card.Content>
           <Card.Header>{this.props.stuff.name}</Card.Header>
           <Card.Meta>{this.props.stuff.pronouns}</Card.Meta>
           <Card.Description>
-            Pronouns : {this.props.stuff.pronouns}
-            {this.props.stuff.gender}
-            {this.props.stuff.age}
-            {this.props.stuff.location}
-            {this.props.stuff.bio}
-            {this.props.stuff.instagram}
-            {this.props.stuff.email}
-          </Card.Description>
+            Gender: {this.props.stuff.gender} </Card.Description>
+            <Card.Description>
+            Age: {this.props.stuff.age} </Card.Description>
+            <Card.Description>
+            Location: {this.props.stuff.location} </Card.Description>
+            <Card.Description>
+            Bio: {this.props.stuff.bio} </Card.Description>
+            <Card.Description>
+            Instagram: {this.props.stuff.instagram} </Card.Description>
+            <Card.Description>
+            Email: {this.props.stuff.email} </Card.Description>
         </Card.Content>
         <Card.Content extra>
           <a>
