@@ -14,8 +14,8 @@ class ProfileCard extends React.Component {
           <Card.Header>{this.props.stuff.name}</Card.Header>
           <Card.Meta>{this.props.stuff.pronouns}</Card.Meta>
           <Card.Description>
-            Pronouns : {this.props.stuff.pronouns}
             {this.props.stuff.gender}
+            <br></br>
             {this.props.stuff.age}
             {this.props.stuff.location}
             {this.props.stuff.bio}

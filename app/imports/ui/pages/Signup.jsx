@@ -1,8 +1,15 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Link, Redirect } from 'react-router-dom';
-import { Container, Form, Grid, Header, Message, Segment } from 'semantic-ui-react';
-import { Accounts } from 'meteor/accounts-base';
+import React from "react";
+import PropTypes from "prop-types";
+import { Link, Redirect } from "react-router-dom";
+import {
+  Container,
+  Form,
+  Grid,
+  Header,
+  Message,
+  Segment,
+} from "semantic-ui-react";
+import { Accounts } from "meteor/accounts-base";
 
 /**
  * Signup component is similar to signin component, but we create a new user instead.
@@ -11,13 +18,18 @@ class Signup extends React.Component {
   /** Initialize state fields. */
   constructor(props) {
     super(props);
-    this.state = { email: '', password: '', error: '', redirectToReferer: false };
+    this.state = {
+      email: "",
+      password: "",
+      error: "",
+      redirectToReferer: false,
+    };
   }
 
   /** Update the form controls each time the user interacts with them. */
   handleChange = (e, { name, value }) => {
     this.setState({ [name]: value });
-  }
+  };
 
   /** Handle Signup submission. Create user account and a profile entry, then redirect to the home page. */
   submit = () => {
@@ -26,17 +38,19 @@ class Signup extends React.Component {
       if (err) {
         this.setState({ error: err.reason });
       } else {
-        this.setState({ error: '', redirectToReferer: true });
+        this.setState({ error: "", redirectToReferer: true });
       }
     });
-  }
+  };
 
   /** Display the signup form. Redirect to add page after successful registration and login. */
   render() {
-    const { from } = this.props.location.state || { from: { pathname: '/add' } };
+    const { from } = this.props.location.state || {
+      from: { pathname: "/AddProfile" },
+    };
     // if correct authentication, redirect to from: page instead of signup screen
     if (this.state.redirectToReferer) {
-      return <Redirect to={from}/>;
+      return <Redirect to={from} />;
     }
     return (
       <Container>
@@ -65,14 +79,14 @@ class Signup extends React.Component {
                   type="password"
                   onChange={this.handleChange}
                 />
-                <Form.Button content="Submit"/>
+                <Form.Button content="Submit" />
               </Segment>
             </Form>
             <Message>
               Already have an account? Login <Link to="/signin">here</Link>
             </Message>
-            {this.state.error === '' ? (
-              ''
+            {this.state.error === "" ? (
+              ""
             ) : (
               <Message
                 error

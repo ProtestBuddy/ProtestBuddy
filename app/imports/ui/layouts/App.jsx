@@ -41,7 +41,6 @@ class App extends React.Component {
             <Route path="/signup" component={Signup} />
             <ProtectedRoute path="/list" component={ListStuff} />
             <ProtectedRoute path="/ListProfile" component={ListProfile} />
-            <ProtectedRoute path="/add" component={AddStuff} />
             <ProtectedRoute path="/AddProfile" component={AddProfile} />
             <ProtectedRoute path="/JoinedGroups" component={JoinedGroups} />
             <ProtectedRoute path="/CreateGroup" component={CreateGroup} />
@@ -59,6 +58,7 @@ class App extends React.Component {
 }
 
 /**
+ * <ProtectedRoute path="/add" component={AddStuff} />
  * ProtectedRoute (see React Router v4 sample)
  * Checks for Meteor login before routing to the requested page, otherwise goes to signin page.
  * @param {any} { component: Component, ...rest }

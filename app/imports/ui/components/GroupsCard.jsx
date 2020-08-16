@@ -13,6 +13,9 @@ class GroupData extends React.Component {
           <Image floated="right" size="tiny" src="\images\earth.png" />
           <Card.Header>{this.props.stuff.location}</Card.Header>
           <Card.Meta>{this.props.stuff.date}</Card.Meta>
+          <Card.Meta> {this.props.stuff.time}</Card.Meta>
+
+          <Card.Description>{this.props.stuff._id}</Card.Description>
           <Card.Description>
             <Link to={`/edit-group/${this.props.stuff._id}`}>Edit</Link>
             {this.props.stuff.owner}
