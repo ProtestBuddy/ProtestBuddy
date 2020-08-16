@@ -3,24 +3,18 @@ import SimpleSchema from "simpl-schema";
 import { Tracker } from "meteor/tracker";
 
 /** Encapsulates state and variable values for this collection. */
-class ProfilesCollection {
+class JGroup {
   constructor() {
     // The name of this collection.
-    this.name = "ProfilesCollection";
+    this.name = "JGroup";
     // Define the Mongo collection.
     this.collection = new Mongo.Collection(this.name);
     // Define the structure of each document in the collection.
     this.schema = new SimpleSchema(
       {
         owner: String,
-        name: String,
-        pronouns: String,
-        gender: String,
-        age: Number,
         location: String,
-        bio: String,
-        instagram: String,
-        email: String,
+        date: String,
       },
       { tracker: Tracker }
     );
@@ -32,5 +26,4 @@ class ProfilesCollection {
   }
 }
 
-// test
-export const Profile = new ProfilesCollection();
+export const YourGroup = new JGroup();

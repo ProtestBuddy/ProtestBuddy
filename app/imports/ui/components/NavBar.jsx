@@ -1,15 +1,15 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Meteor } from 'meteor/meteor';
-import { withTracker } from 'meteor/react-meteor-data';
-import { withRouter, NavLink } from 'react-router-dom';
-import { Menu, Dropdown, Header } from 'semantic-ui-react';
-import { Roles } from 'meteor/alanning:roles';
+import React from "react";
+import PropTypes from "prop-types";
+import { Meteor } from "meteor/meteor";
+import { withTracker } from "meteor/react-meteor-data";
+import { withRouter, NavLink } from "react-router-dom";
+import { Menu, Dropdown, Header } from "semantic-ui-react";
+import { Roles } from "meteor/alanning:roles";
 
 /** The NavBar appears at the top of every page. Rendered by the App Layout component. */
 class NavBar extends React.Component {
   render() {
-    const menuStyle = { marginBottom: '10px' };
+    const menuStyle = { marginBottom: "10px" };
     return (
       <Menu style={menuStyle} attached="top" borderless inverted>
         <Menu.Item as={NavLink} activeClassName="" exact to="/">
@@ -56,8 +56,8 @@ class NavBar extends React.Component {
                 View Groups
               </Menu.Item>,
             ]
-          : ''}
-        {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
+          : ""}
+        {Roles.userIsInRole(Meteor.userId(), "admin") ? (
           <Menu.Item
             as={NavLink}
             activeClassName="active"
@@ -68,11 +68,11 @@ class NavBar extends React.Component {
             Admin
           </Menu.Item>
         ) : (
-          ''
+          ""
         )}
         <Menu.Item position="right">
-          {this.props.currentUser === '' ? (
-            <Dropdown text="Login" pointing="top right" icon={'user'}>
+          {this.props.currentUser === "" ? (
+            <Dropdown text="Login" pointing="top right" icon={"user"}>
               <Dropdown.Menu>
                 <Dropdown.Item
                   icon="user"
@@ -94,7 +94,7 @@ class NavBar extends React.Component {
             <Dropdown
               text={this.props.currentUser}
               pointing="top right"
-              icon={'user'}
+              icon={"user"}
             >
               <Dropdown.Menu>
                 <Dropdown.Item
@@ -120,7 +120,7 @@ NavBar.propTypes = {
 
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
 const NavBarContainer = withTracker(() => ({
-  currentUser: Meteor.user() ? Meteor.user().username : '',
+  currentUser: Meteor.user() ? Meteor.user().username : "",
 }))(NavBar);
 
 /** Enable ReactRouter for this component. https://reacttraining.com/react-router/web/api/withRouter */

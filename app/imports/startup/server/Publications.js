@@ -4,6 +4,7 @@ import { Stuffs } from "../../api/stuff/Stuff";
 import { Profile } from "../../api/stuff/Profile";
 
 import { Groups } from "../../api/stuff/Group";
+import { YourGroup } from "../../api/stuff/JGroup";
 
 // User-level publication.
 // If logged in, then publish documents owned by this user. Otherwise publish nothing.
@@ -16,6 +17,14 @@ Meteor.publish(Stuffs.userPublicationName, function () {
 });
 
 Meteor.publish(Profile.userPublicationName, function () {
+  if (this.userId) {
+    const username = Meteor.users.findOne(this.userId).username;
+    return Profile.collection.find({ owner: username });
+  }
+  return this.ready();
+});
+
+Meteor.publish(YourGroup.userPublicationName, function () {
   if (this.userId) {
     const username = Meteor.users.findOne(this.userId).username;
     return Profile.collection.find({ owner: username });

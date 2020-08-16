@@ -26,6 +26,7 @@ import Signup from "../pages/Signup";
 import Signout from "../pages/Signout";
 import CreateGroup from "../pages/CreateGroup";
 import ListGroup from "../pages/ListGroup";
+import JoinedGroups from "../pages/JoinedGroups";
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
@@ -42,6 +43,7 @@ class App extends React.Component {
             <ProtectedRoute path="/ListProfile" component={ListProfile} />
             <ProtectedRoute path="/add" component={AddStuff} />
             <ProtectedRoute path="/AddProfile" component={AddProfile} />
+            <ProtectedRoute path="/JoinedGroups" component={JoinedGroups} />
             <ProtectedRoute path="/CreateGroup" component={CreateGroup} />
             <ProtectedRoute path="/ListGroup" component={ListGroup} />
             <ProtectedRoute path="/edit/:_id" component={EditProfile} />
@@ -50,7 +52,6 @@ class App extends React.Component {
             <ProtectedRoute path="/signout" component={Signout} />
             <Route component={NotFound} />
           </Switch>
-          <Footer />
         </div>
       </Router>
     );

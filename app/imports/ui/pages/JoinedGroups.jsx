@@ -6,19 +6,19 @@ import {
   Header,
   Loader,
   Card,
-  Image,
-  Icon,
+  Form,
 } from "semantic-ui-react";
 import { withTracker } from "meteor/react-meteor-data";
 import PropTypes from "prop-types";
 import { Stuffs } from "../../api/stuff/Stuff";
+import { Groups } from "../../api/stuff/Group";
 import StuffItem from "../components/StuffItem";
-import { Profile } from "../../api/stuff/Profile";
-import ProfileItems from "../components/ProfileItems";
-import ProfileCard from "../components/ProfileCard";
+import GroupData from "../components/GroupData";
+import GroupsCard from "../components/GroupsCard";
+import { YourGroup } from "../../api/stuff/JGroup";
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
-class ListProfile extends React.Component {
+class JoinedGroups extends React.Component {
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   render() {
     return this.props.ready ? (
@@ -32,34 +32,29 @@ class ListProfile extends React.Component {
   renderPage() {
     return (
       <Container>
-        <Header as="h2" textAlign="center">
-          Your Profile:
-        </Header>
-
-        <Container>
-          <Card.Group>
-            {this.props.stuffs.map((stuff) => (
-              <ProfileCard key={stuff._id} stuff={stuff} />
-            ))}
-          </Card.Group>
-        </Container>
+        Your Joined Groups
+        <Card.Group>
+          {this.props.stuffs.map((stuff) => (
+            <GroupsCard key={stuff._id} stuff={stuff} />
+          ))}
+        </Card.Group>
       </Container>
     );
   }
 }
 
 /** Require an array of Stuff documents in the props. */
-ListProfile.propTypes = {
+JoinedGroups.propTypes = {
   stuffs: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
-
+//db1: Section1DB.find({}).fetch(),
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
 export default withTracker(() => {
   // Get access to Stuff documents.
-  const subscription = Meteor.subscribe(Profile.userPublicationName);
+  const subscription = Meteor.subscribe(YourGroup.userPublicationName);
   return {
-    stuffs: Profile.collection.find({}).fetch(),
+    stuffs: YourGroup.collection.find({}).fetch(),
     ready: subscription.ready(),
   };
-})(ListProfile);
+})(JoinedGroups);
