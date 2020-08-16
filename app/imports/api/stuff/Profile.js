@@ -13,12 +13,11 @@ class ProfilesCollection {
     this.schema = new SimpleSchema({
       owner: String,
       name: String,
+      pronouns: String,
+      gender: String,
+      age: Number,
+      location: String,
       bio: String,
-      condition: {
-        type: String,
-        allowedValues: ['excellent', 'good', 'fair', 'poor'],
-        defaultValue: 'good',
-      },
     }, { tracker: Tracker });
     // Attach the schema to the collection, so all attempts to insert a document are checked against schema.
     this.collection.attachSchema(this.schema);

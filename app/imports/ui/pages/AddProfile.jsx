@@ -12,12 +12,11 @@ import { Profile } from '../../api/stuff/Profile';
 /** Create a schema to specify the structure of the data to appear in the form. */
 const formSchema = new SimpleSchema({
   name: String,
+  pronouns: String,
+  gender: String,
+  age: Number,
+  location: String,
   bio: String,
-  condition: {
-    type: String,
-    allowedValues: ['excellent', 'good', 'fair', 'poor'],
-    defaultValue: 'good',
-  },
 });
 
 const bridge = new SimpleSchema2Bridge(formSchema);
@@ -27,9 +26,9 @@ class AddProfile extends React.Component {
 
   /** On submit, insert the data. */
   submit(data, formRef) {
-    const { name, bio, condition } = data;
+    const { name, pronouns, gender, age, location, bio } = data;
     const owner = Meteor.user().username;
-    Profile.collection.insert({ name, bio, condition, owner },
+    Profile.collection.insert({ name, pronouns, gender, age, location, bio, owner },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');
@@ -50,8 +49,11 @@ class AddProfile extends React.Component {
             <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => this.submit(data, fRef)} >
               <Segment>
                 <TextField name='name'/>
+                <TextField name='pronouns'/>
+                <TextField name='gender'/>
+                <NumField name='age' decimal={false}/>
+                <TextField name='location'/>
                 <TextField name='bio'/>
-                <SelectField name='condition'/>
                 <SubmitField value='Submit'/>
                 <ErrorsField/>
               </Segment>
