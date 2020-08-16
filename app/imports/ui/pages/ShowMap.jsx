@@ -19,19 +19,19 @@ function initMap() {
     center: UW
   });
 
-  google.maps.event.addListener(map, 'click', function(event) {
-    addMarker(event.latLng, map);
-  });
+  //google.maps.event.addListener(map, 'click', function(event) {
+  //  addMarker(event.latLng, map);
+  //});
 }
 
 function addMarker(location, map) {
   if (this.userId) {
-    for (i = 0; i < markers_arr.length; i++) {
+    //for (i = 0; i < markers_arr.length; i++) {
       // if the label of the i-th marker equals the name of any user in the group of the current user
-      if (markers_arr[i].getLabel() == Meteor.users.findOne(this.userId).name) {
-        markers_arr[i].setMap(null);
-      }
-    }
+    //  if (markers_arr[i].getLabel() == Meteor.users.findOne(this.userId).name) {
+    //    markers_arr[i].setMap(null);
+    //  }
+    //}
     var marker = new google.maps.Marker({
       position: location,
       label: Meteor.users.findOne(this.userId).name,
@@ -62,15 +62,15 @@ class ShowMap extends React.Component {
 
 /** Require an array of Stuff documents in the props. */
 ShowMap.propTypes = {
-  map: PropTypes.bool.isRequired,
+  //map: PropTypes.bool.isRequired,
 };
 
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
 export default withTracker(() => {
   // Get access to Stuff documents.
-  const subscription = Meteor.subscribe(Groups.userPublicationName);
+  //const subscription = Meteor.subscribe(Groups.userPublicationName);
   return {
-    stuffs: Groups.collection.find({}).fetch(),
-    ready: subscription.ready(),
+    //stuffs: Groups.collection.find({}).fetch(),
+    //ready: subscription.ready(),
   };
 })(ShowMap);

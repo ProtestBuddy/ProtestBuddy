@@ -82,6 +82,8 @@ class EditGroup extends React.Component {
             <Button as={NavLink} exact to="/ListGroup" basic color="blue">
               Back to All Groups
             </Button>
+
+            
           </div>
         </Grid.Column>
       </Grid>

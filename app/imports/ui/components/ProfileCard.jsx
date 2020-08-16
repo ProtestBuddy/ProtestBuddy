@@ -23,12 +23,6 @@ class ProfileCard extends React.Component {
             {this.props.stuff.email}
           </Card.Description>
         </Card.Content>
-        <Card.Content extra>
-          <a>
-            <Icon name="user" />
-            10 Friends
-          </a>
-        </Card.Content>
       </Card>
     );
   }
