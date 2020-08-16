@@ -50,7 +50,6 @@ class CreateGroup extends React.Component {
   render() {
     let fRef = null;
     return (
-<<<<<<< Updated upstream
       <Grid container centered>
         <Grid.Column>
           <Header as="h2" textAlign="center">
@@ -74,21 +73,6 @@ class CreateGroup extends React.Component {
           </AutoForm>
         </Grid.Column>
       </Grid>
-=======
-        <Grid container centered>
-          <Grid.Column>
-            <Header as="h2" textAlign="center">Create a Group!</Header>
-            <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => this.submit(data, fRef)} >
-              <Segment>
-                <TextField name='location'/>
-                  <TextField name='date' placeholder={'mm/dd/yyyy'}/>
-                <SubmitField value='Submit'/>
-                <ErrorsField/>
-              </Segment>
-            </AutoForm>
-          </Grid.Column>
-        </Grid>
->>>>>>> Stashed changes
     );
   }
 }
