@@ -3,8 +3,8 @@ service: link-up
 env: flex
 threadsafe: true
 zones:
-- us-east1-b
-- us-east1-c
+  - us-east1-b
+  - us-east1-c
 resources:
   cpu: 1
   memory_gb: 0.5
@@ -15,7 +15,7 @@ automatic_scaling:
   max_num_instances: 2
 env_variables:
   ROOT_URL: https://ProtestBuddy.appspot.com
-  MONGO_URL: mongodb+srv://arslanr:hackTest20@cluster0.rbdff.mongodb.net/Hack20?retryWrites=true&w=majority
+  MONGO_URL: mongodb+srv://arslanr:Das_1090@cluster0.rbdff.mongodb.net/Hack20?retryWrites=true&w=majority
   MAIL_URL:
 skip_files:
   - ^(.*/)?\.dockerignore$
@@ -24,4 +24,3 @@ skip_files:
   - ^(.*/)?\.git$
   - ^(.*/)?\.hg$
   - ^(.*/)?\.svn$
-  
