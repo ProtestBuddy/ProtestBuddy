@@ -1,6 +1,6 @@
 import React from 'react';
 import { Grid, Segment, Header } from 'semantic-ui-react';
-import { AutoForm, ErrorsField, NumField, SelectField, SubmitField, TextField, DateField, BooleanField } from 'uniforms-semantic';
+import { AutoForm, ErrorsField, NumField, SelectField, SubmitField, DateField, BoolField, TextField } from 'uniforms-semantic';
 import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
@@ -11,13 +11,8 @@ import { Groups } from '../../api/stuff/Group';
 /** Create a schema to specify the structure of the data to appear in the form. */
 const formSchema = new SimpleSchema({
   location: String,
-  date: {
-      type: Date,
-      defaultValue: new Date()
-  },
-  adult: {
-       type: Boolean
-  }
+  date: String,
+  adult: String,
 });
 
 const bridge = new SimpleSchema2Bridge(formSchema);
@@ -30,14 +25,14 @@ class CreateGroup extends React.Component {
     const { location, date, adult } = data;
     const owner = Meteor.user().username;
     Groups.collection.insert({ location, date, adult, owner },
-      (error) => {
-        if (error) {
-          swal('Error', error.message, 'error');
-        } else {
-          swal('Success', 'Item added successfully', 'success');
-          formRef.reset();
-        }
-      });
+        (error) => {
+          if (error) {
+            swal('Error', error.message, 'error');
+          } else {
+            swal('Success', 'Item added successfully', 'success');
+            formRef.reset();
+          }
+        });
   }
 
   /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
@@ -50,8 +45,8 @@ class CreateGroup extends React.Component {
             <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => this.submit(data, fRef)} >
               <Segment>
                 <TextField name='location'/>
-                <DateField name='date'/>
-                <BooleanField name='adult'/>
+                <TextField name='date' placeholder={'mm/dd/yyyy'}/>
+                <TextField name='adult'/>
                 <SubmitField value='Submit'/>
                 <ErrorsField/>
               </Segment>

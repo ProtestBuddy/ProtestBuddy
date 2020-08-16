@@ -3,21 +3,18 @@ import SimpleSchema from 'simpl-schema';
 import { Tracker } from 'meteor/tracker';
 
 /** Encapsulates state and variable values for this collection. */
-class GroupsCollection {
+class GroupCollection {
   constructor() {
     // The name of this collection.
-    this.name = 'GroupsCollection';
+    this.name = 'GroupCollection';
     // Define the Mongo collection.
     this.collection = new Mongo.Collection(this.name);
     // Define the structure of each document in the collection.
     this.schema = new SimpleSchema({
-      location: String,
-      date: {
-          type: Date,
-          defaultValue: new Date()
-      },
-      adult: type: Boolean,
       owner: String,
+      location: String,
+      date: String,
+      adult: String,
     }, { tracker: Tracker });
     // Attach the schema to the collection, so all attempts to insert a document are checked against schema.
     this.collection.attachSchema(this.schema);
@@ -27,4 +24,4 @@ class GroupsCollection {
   }
 }
 
-export const Groups = new GroupsCollection();
+export const Groups = new GroupCollection();

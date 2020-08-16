@@ -78,7 +78,7 @@ class NavBar extends React.Component {
                 activeClassName="active"
                 exact
                 to="/list"
-                key="list"
+                key="otherList"
               >
                 List Stuff
               </Menu.Item>,
