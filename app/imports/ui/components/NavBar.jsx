@@ -23,37 +23,19 @@ class NavBar extends React.Component {
                 as={NavLink}
                 activeClassName="active"
                 exact
-                to="/add"
-                key="add"
-              >
-                Add Stuff
-              </Menu.Item>,
-              <Menu.Item
-                as={NavLink}
-                activeClassName="active"
-                exact
                 to="/AddProfile"
                 key="AddProfile"
               >
-                Your Profile
+                Create Profile
               </Menu.Item>,
               <Menu.Item
                 as={NavLink}
                 activeClassName="active"
                 exact
-                to="/list"
-                key="list"
+                to="/listProfile"
+                key="listProfile"
               >
-                List Stuff
-              </Menu.Item>,
-              <Menu.Item
-                as={NavLink}
-                activeClassName="active"
-                exact
-                to="/ListProfile"
-                key="ListProfile"
-              >
-                My Profile
+                View Profile
               </Menu.Item>,
               <Menu.Item
                 as={NavLink}
@@ -71,16 +53,7 @@ class NavBar extends React.Component {
                 to="/listGroup"
                 key="listGroup"
               >
-                List Group
-              </Menu.Item>,
-              <Menu.Item
-                as={NavLink}
-                activeClassName="active"
-                exact
-                to="/list"
-                key="otherList"
-              >
-                List Stuff
+                View Groups
               </Menu.Item>,
             ]
           : ''}
