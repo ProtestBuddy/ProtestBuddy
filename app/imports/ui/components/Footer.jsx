@@ -10,7 +10,6 @@ class Footer extends React.Component {
             <hr />
               LinkUP! DubHacks Hack'20 <br />
               Website Created by Arslan Rakhmankulov, Ashley Wang, August Chen, Jason Miller, and Daniel Miau <br />
-            <a href="http://ics-software-engineering.github.io/meteor-application-template-react">Template Home Page</a>
           </div>
         </footer>
     );

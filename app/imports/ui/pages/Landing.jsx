@@ -8,12 +8,12 @@ class Landing extends React.Component {
         <Grid verticalAlign='middle' textAlign='center' container>
 
           <Grid.Column width={8}>
-            <Image size='small' circular src="/images/Hack20_Logo.png"/>
+            <Image size='medium' circular src="/images/Hack20_Logo.png"/>
           </Grid.Column>
 
           <Grid.Column width={4}>
-          <h1>Welcome.</h1>
-          <p>LinkUP! is a space that can connects people who want to join a group to safely protest, advocate for the community and use your voice in support of social movements. </p>
+            <h1>Welcome.</h1>
+            <p>LinkUP! is a space that can connects people who want to join a group to safely protest, advocate for the community and use your voice in support of social movements. </p>
           </Grid.Column>
 
         </Grid>
