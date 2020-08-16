@@ -55,15 +55,6 @@ class NavBar extends React.Component {
               >
                 View Groups
               </Menu.Item>,
-              <Menu.Item
-                as={NavLink}
-                activeClassName="active"
-                exact
-                to="/JoinedGroups"
-                key="JoinedGroups"
-              >
-                Joined Groups
-              </Menu.Item>,
             ]
           : ""}
         {Roles.userIsInRole(Meteor.userId(), "admin") ? (

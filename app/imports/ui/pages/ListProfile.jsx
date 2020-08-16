@@ -1,43 +1,49 @@
-import React from 'react';
-import { Meteor } from 'meteor/meteor';
-import { Container, Table, Header, Loader } from 'semantic-ui-react';
-import { withTracker } from 'meteor/react-meteor-data';
-import PropTypes from 'prop-types';
-import { Stuffs } from '../../api/stuff/Stuff';
-import StuffItem from '../components/StuffItem';
-import { Profile } from '../../api/stuff/Profile';
-import ProfileItems from '../components/ProfileItems';
+import React from "react";
+import { Meteor } from "meteor/meteor";
+import {
+  Container,
+  Table,
+  Header,
+  Loader,
+  Card,
+  Image,
+  Icon,
+} from "semantic-ui-react";
+import { withTracker } from "meteor/react-meteor-data";
+import PropTypes from "prop-types";
+import { Stuffs } from "../../api/stuff/Stuff";
+import StuffItem from "../components/StuffItem";
+import { Profile } from "../../api/stuff/Profile";
+import ProfileItems from "../components/ProfileItems";
+import ProfileCard from "../components/ProfileCard";
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class ListProfile extends React.Component {
-
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   render() {
-    return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
+    return this.props.ready ? (
+      this.renderPage()
+    ) : (
+      <Loader active>Getting data</Loader>
+    );
   }
 
   /** Render the page once subscriptions have been received. */
   renderPage() {
     return (
+      <Container>
+        <Header as="h2" textAlign="center">
+          Your Profile:
+        </Header>
+
         <Container>
-          <Header as="h2" textAlign="center">Your Profile:</Header>
-          <Table celled>
-            <Table.Header>
-              <Table.Row>
-                <Table.HeaderCell>Name</Table.HeaderCell>
-                <Table.HeaderCell>Pronouns</Table.HeaderCell>
-                <Table.HeaderCell>Gender</Table.HeaderCell>
-                <Table.HeaderCell>Age</Table.HeaderCell>
-                <Table.HeaderCell>Location</Table.HeaderCell>
-                <Table.HeaderCell>Bio</Table.HeaderCell>
-                <Table.HeaderCell>Edit</Table.HeaderCell>
-              </Table.Row>
-            </Table.Header>
-            <Table.Body>
-              {this.props.stuffs.map((stuff) => <ProfileItems key={stuff._id} stuff={stuff} />)}
-            </Table.Body>
-          </Table>
+          <Card.Group>
+            {this.props.stuffs.map((stuff) => (
+              <ProfileCard key={stuff._id} stuff={stuff} />
+            ))}
+          </Card.Group>
         </Container>
+      </Container>
     );
   }
 }

@@ -2,6 +2,7 @@ import React from "react";
 import { Table, Card, Image, Button } from "semantic-ui-react";
 import PropTypes from "prop-types";
 import { withRouter, Link } from "react-router-dom";
+import { YourGroup } from "../../api/stuff/JGroup";
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 class GroupData extends React.Component {
@@ -12,7 +13,7 @@ class GroupData extends React.Component {
           <Image
             floated="right"
             size="mini"
-            src="app\public\images\blankUser.png"
+            src="\app\public\images\blankUser.png"
           />
           <Card.Header>{this.props.stuff.location}</Card.Header>
           <Card.Meta>{this.props.stuff.date}</Card.Meta>
