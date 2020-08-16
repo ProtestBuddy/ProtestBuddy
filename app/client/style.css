@@ -1,0 +1,24 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
+    min-width: 320px;
+    background: #FFFFFF;
+    font-family: 'Degular Display', 'Muli';
+    font-size: 18px;
+    line-height: 1.4285em;
+    color: green
+    (0, 0, 0, 0.87);
+    
+    #rectangle {
+        position: absolute;
+        width: 621px;
+        height: 1024px;
+        left: 819px;
+        top: 0px;
+    
+        background: #000000;
+    }
+
+}
+
