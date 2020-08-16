@@ -35,7 +35,7 @@ class NavBar extends React.Component {
                 to="/AddProfile"
                 key="AddProfile"
               >
-                Add List Test - Bio
+                Your Profile
               </Menu.Item>,
               <Menu.Item
                 as={NavLink}
@@ -51,7 +51,7 @@ class NavBar extends React.Component {
                 activeClassName="active"
                 exact
                 to="/ListProfile"
-                key="list"
+                key="ListProfile"
               >
                 My Profile
               </Menu.Item>,

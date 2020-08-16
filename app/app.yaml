@@ -15,7 +15,7 @@ automatic_scaling:
   max_num_instances: 2
 env_variables:
   ROOT_URL: https://ProtestBuddy.appspot.com
-  MONGO_URL: mongodb+srv://arslanr:hackTest20@cluster0.rbdff.gcp.mongodb.net/Hack20?retryWrites=true&w=majority
+  MONGO_URL: mongodb+srv://arslanr:hackTest20@cluster0.rbdff.mongodb.net/Hack20?retryWrites=true&w=majority
   MAIL_URL:
 skip_files:
   - ^(.*/)?\.dockerignore$
