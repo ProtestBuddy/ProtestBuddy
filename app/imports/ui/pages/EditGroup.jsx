@@ -56,24 +56,25 @@ class EditGroup extends React.Component {
       <Grid container centered>
         <Grid.Column>
           <Header as="h2" textAlign="center">
-            LinkUP Info:
+            LinkUP!
           </Header>
-          This is the location: {this.props.items.location};
+
           <Item.Group>
             <Item>
               <Item.Image size="medium" src="/images/city.jpg" />
 
               <Item.Content>
                 <Item.Header as="a">{this.props.items.event}</Item.Header>
-                <Item.Description>
-                  Location: {this.props.items.location}{" "}
-                </Item.Description>
-                <Item.Description>
-                  Date: {this.props.items.date}{" "}
-                </Item.Description>
-                <Item.Description>
-                  Time: {this.props.items.time}{" "}
-                </Item.Description>
+                <Item.Description></Item.Description>
+                <Item.Header as="a">
+                  Location: {this.props.items.location}
+                </Item.Header>
+                <Item.Description></Item.Description>
+
+                <Item.Header as="a">Date: {this.props.items.date}</Item.Header>
+                <Item.Description></Item.Description>
+
+                <Item.Header as="a">Time: {this.props.items.time}</Item.Header>
               </Item.Content>
             </Item>
           </Item.Group>
