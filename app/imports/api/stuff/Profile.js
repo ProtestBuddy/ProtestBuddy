@@ -27,4 +27,6 @@ class ProfilesCollection {
   }
 }
 
+
+// test
 export const Profile = new ProfilesCollection();
